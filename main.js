@@ -2,6 +2,9 @@ document.getElementById('issueInputForm').addEventListener('submit', saveIssue);
 
 function fetchIssues() {
   var issues = JSON.parse(localStorage.getItem('issues'));
+  issues = issues.sort( function (a,b) { 
+    return a.severity > b.severity ? 1 : -1
+  })
   var issuesList = document.getElementById('issuesList');
 
   issuesList.innerHTML = '';
