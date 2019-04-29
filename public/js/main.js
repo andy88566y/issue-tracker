@@ -34,10 +34,10 @@ function fetchIssues() {
 }
 
 function getOpenOrCloseButton(issue) {
-  if (issue.status === "Opened") {
-    return '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\'' + issue.id + '\')">Close</a> '
+  if (issue.status === "Closed") {
+    return '<a href="#" class="btn btn-success" onclick="setStatusOpened(\'' + issue.id + '\')">Re-Open</a> '
   } else {
-    return '<a href="#" class="btn btn-success" onclick="setStatusOpened(\'' + issue.id + '\')">Open</a> '
+    return '<a href="#" class="btn btn-warning" onclick="setStatusClosed(\'' + issue.id + '\')">Close</a> '
   }
 }
 
@@ -91,7 +91,7 @@ function setStatusOpened (id) {
   
   for(var i = 0; i < issues.length; i++) {
     if (issues[i].id == id) {
-      issues[i].status = "Opened";
+      issues[i].status = "Open";
     }
   }
     
